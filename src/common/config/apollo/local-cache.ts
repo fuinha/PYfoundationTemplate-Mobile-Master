@@ -16,14 +16,14 @@ export const localCache = new InMemoryCache({
           read(_, { readField }) {
             const charName = readField('name');
             switch (charName) {
-              case 'Albert Einstein':
-                return 25;
-              case 'Rick Sanchez':
-              case 'Morty Smith':
-                return 10;
+              case 'PLAN FAmiliar':
+                return 150000;
+              case 'PLAN Medio':
+              case 'PLAN Basico':
+                return 100000;
 
               default:
-                return 5;
+                return 50000;
             }
           },
         },

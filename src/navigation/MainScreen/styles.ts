@@ -12,11 +12,16 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
+  badgeIconView: {
+    position: 'relative',
   },
-  characterList: {
-    padding: 16,
+  badge: {
+    position: 'absolute',
+    zIndex: 10,
+    left: 24,
+    bottom: 20,
+    padding: 1,
+    borderRadius: 20,
+    fontSize: 14,
   },
 });

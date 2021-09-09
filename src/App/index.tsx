@@ -19,10 +19,20 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <ApolloProvider client={apolloClient}>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={MainScreen} />
-        <Stack.Screen name="Root" component={Root} />
-      </Stack.Navigator>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={MainScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Root"
+            component={Root}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </ApolloProvider>
   );
 };

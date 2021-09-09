@@ -28,7 +28,7 @@ const CartScreen = (props: any) => {
             <Text
               style={
                 styles.subtitle
-              }>{`Total price: U$ ${data?.shoppingCart.totalPrice}`}</Text>
+              }>{`Total price: G$ ${data?.shoppingCart.totalPrice}`}</Text>
           </View>
         </>
       ) : (

@@ -6,10 +6,13 @@
 //#  10/04/2020
 //########################################
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useGetShoppingCartQuery } from '../../common/generated/graphql';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Root from '../Roots';
+import styles from './styles';
 
 import About from '../../pages/AboutScreen';
 import Cart from '../../pages/CartScreen';
@@ -26,29 +29,68 @@ import Profile from '../../pages/ProfileScreen';
 import Register from '../../pages/RegisterScreeen';
 import Settings from '../../pages/SettingsScreen';
 
-const MainScreen = () => {
-  const Tab = createBottomTabNavigator();
+const TabRoutes = createBottomTabNavigator();
+
+const MainScreen: React.FC = () => {
+  const { data } = useGetShoppingCartQuery();
 
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName = 'ios-home';
-
-          if (route.name === 'Home') {
-          } else if (route.name === 'Details') {
-            iconName = 'ios-list';
-          } else if (route.name === 'Contact') {
-            iconName = 'ios-call';
-          }
-
-          return <MaterialIcons name={iconName} size={size} color={color} />;
+    <TabRoutes.Navigator
+      tabBarOptions={{
+        labelPosition: 'beside-icon',
+        style: {
+          height: 64,
+          alignItems: 'center',
         },
-      })}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Details" component={Details} />
-      <Tab.Screen name="Root" component={Root} />
-    </Tab.Navigator>
+      }}>
+      <TabRoutes.Screen
+        name="Inicio"
+        component={Root}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcons size={size * 1.2} color={color} name="home" />
+          ),
+        }}
+      />
+      <TabRoutes.Screen
+        name="Lista"
+        component={List}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcons
+              size={size * 1.2}
+              color={color}
+              name="format-list-bulleted"
+            />
+          ),
+        }}
+      />
+      <TabRoutes.Screen
+        name="Carrito"
+        component={Cart}
+        options={{
+          tabBarIcon: ({ size, color }) =>
+            data?.shoppingCart?.numActionFigures ? (
+              <View style={styles.badgeIconView}>
+                <Text style={styles.badge}>
+                  {data?.shoppingCart?.numActionFigures}
+                </Text>
+                <MaterialIcons
+                  size={size * 1.2}
+                  color={color}
+                  name="shopping-cart"
+                />
+              </View>
+            ) : (
+              <MaterialIcons
+                size={size * 1.2}
+                color={color}
+                name="shopping-cart"
+              />
+            ),
+        }}
+      />
+    </TabRoutes.Navigator>
   );
 };
 

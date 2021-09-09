@@ -31,8 +31,20 @@ const Stack = createStackNavigator();
 
 const Root = () => {
   return (
-    <Drawer.Navigator initialRouteName="Profile">
+    <Drawer.Navigator initialRouteName="Inicio">
+      <Drawer.Screen name="Inicio" component={Home} />
+      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="Cart" component={Cart} />
+      <Drawer.Screen name="ContactA" component={ContactA} />
+      <Drawer.Screen name="ContactB" component={ContactB} />
+      <Drawer.Screen name="Details" component={Details} />
+      <Drawer.Screen name="Input" component={Input} />
+      <Drawer.Screen name="List" component={List} />
+      <Drawer.Screen name="Login" component={Login} />
+      <Drawer.Screen name="Output" component={Output} />
+      <Drawer.Screen name="Password" component={Password} />
       <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="Register" component={Register} />
       <Drawer.Screen name="Settings" component={Settings} />
     </Drawer.Navigator>
   );

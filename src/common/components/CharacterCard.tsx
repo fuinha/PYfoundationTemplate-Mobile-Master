@@ -25,7 +25,7 @@ const CharacterCard: React.FC<Props> = ({ data }) => {
       )}
       <View style={styles.details}>
         <Text style={styles.text}>{data.name}</Text>
-        <Text style={styles.text}>{`U$ ${data.unitPrice}`}</Text>
+        <Text style={styles.text}>{`G$ ${data.unitPrice}`}</Text>
       </View>
       <View style={styles.choseQuantityContainer}>
         <RectButton

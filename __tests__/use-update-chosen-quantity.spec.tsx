@@ -148,7 +148,7 @@ const mockCharactersData = {
       {
         id: '1',
         __typename: 'Character',
-        name: 'Rick Sanchez',
+        name: 'PLAN 1',
         image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
         species: 'Human',
         unitPrice: 10,
@@ -167,7 +167,7 @@ const mockCharactersData = {
       {
         id: '2',
         __typename: 'Character',
-        name: 'Rick Sanchez',
+        name: 'PLAN 2',
         image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
         species: 'Human',
         unitPrice: 10,
