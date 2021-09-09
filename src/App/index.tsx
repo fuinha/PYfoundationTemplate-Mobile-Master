@@ -16,6 +16,9 @@ import Root from '../navigation/Roots';
 const apolloClient = createApolloClient();
 const Stack = createStackNavigator();
 
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs();
+
 const App = () => {
   return (
     <ApolloProvider client={apolloClient}>
